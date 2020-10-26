@@ -37,8 +37,7 @@ func deleteInitFile() {
 func runGradle() {
 	cmd := "./gradlew --init-script _tmp_init.gradle -q | tail -n 1"
 	out, _ := exec.Command("bash", "-c", cmd).Output()
-
-	if string(out) == "true" {
+	if string(out) == "true\n" {
 		log.Donef("✓ Parallel Execution")
 	} else {
 		log.Warnf("! Parallel Execution")
